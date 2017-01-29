@@ -25,7 +25,7 @@ namespace Assets.Editor
                 int a = Random.Range(0, 1000);
                 int b = Random.Range(0, 1000);
 
-                AddIndividual(snapshot, new Coordinates(a, b, 0));
+                AddIndividual(snapshot, new Coordinates(a, 0, b));
             }    
         }
 
@@ -33,6 +33,28 @@ namespace Assets.Editor
         {
             var entityId = snapshot.GenerateId();
             var entity = EntityTemplateFactory.CreateIndividualTemplate(coordinates);
+            snapshot.Add(entityId, entity);
+        }
+
+        public static void AddSimulationCountries(SnapshotBuilder snapshot)
+        {
+            var L = 400;
+            AddCountry(snapshot, new Coordinates(0, 0, 0));
+            AddCountry(snapshot, new Coordinates(0, 0, L));
+            AddCountry(snapshot, new Coordinates(L, 0, 0));
+            AddCountry(snapshot, new Coordinates(L, 0, L));
+            AddCountry(snapshot, new Coordinates(L, 0, 2 * L));
+            AddCountry(snapshot, new Coordinates(2 * L, 0, L));
+            AddCountry(snapshot, new Coordinates(0, 0, 3 * L));
+            AddCountry(snapshot, new Coordinates(0, 0, 4 * L));
+            AddCountry(snapshot, new Coordinates(L, 0, 3 * L));
+            AddCountry(snapshot, new Coordinates(2 * L, 0, 3 * L));
+        }
+
+        public static void AddCountry(SnapshotBuilder snapshot, Coordinates coordinates)
+        {
+            var entityId = snapshot.GenerateId();
+            var entity = EntityTemplateFactory.CreateCountryTemplate(coordinates);
             snapshot.Add(entityId, entity);
         }
 
