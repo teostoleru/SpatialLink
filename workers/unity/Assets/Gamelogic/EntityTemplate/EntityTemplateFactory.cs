@@ -111,7 +111,7 @@ namespace Assets.Gamelogic.EntityTemplate
             template.Add(new Harvestable.Data());
             template.Add(new Health.Data(SimulationSettings.TreeMaxHealth, SimulationSettings.TreeMaxHealth, true));
             template.Add(new Flammable.Data(false, true, FireEffectType.BIG));
-            template.Add(new TreeState.Data((TreeType)UnityEngine.Random.Range(0, 2), TreeFSMState.HEALTHY));
+            template.Add(new TreeState.Data((TreeType)UnityEngine.Random.Range(0, 2), TreeFSMState.HEALTHY, (ulong)0, 5.0f));
 
             var permissions = Acl.Build()
                 .SetReadAccess(CommonPredicates.PhysicsOrVisual)

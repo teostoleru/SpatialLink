@@ -15,9 +15,13 @@ enum TreeFSMState {
 type TreeStateData {
   TreeType tree_type = 1;
   TreeFSMState current_state = 2;
+  uint64 population = 3;
+  float status = 4;
 } 
 
 component TreeState {
   id = 1600;
   data TreeStateData;
+
+
 }

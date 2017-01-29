@@ -12,6 +12,11 @@ namespace Assets.Gamelogic.Core
     public class IndividualMovement : MonoBehaviour
     {
         [SerializeField] private Transform transform;
+        private Vector3 movement = new Vector3();
+
+        public Vector3 Movement
+        { set { movement = value; } }
+
         private void Start()
         {
             transform = gameObject.GetComponent<Transform>();
@@ -24,7 +29,6 @@ namespace Assets.Gamelogic.Core
         }
         private void FixedUpdate()
         {
-            Vector3 movement = new Vector3(1, 0, 1);
             transform.position = transform.position + movement;
         }
     }

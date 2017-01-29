@@ -11,7 +11,22 @@ namespace Assets.Editor
     public static class SnapshotUtil
     {
         private static readonly System.Random rand = new System.Random();
+        private static Coordinates[] countries = new Coordinates[10];
+        private static int L = 100;
 
+        private static void InitialiseCountries()
+        {
+            countries[0] = new Coordinates(0, 0, 0);
+            countries[1] = new Coordinates(0, 0, L);
+            countries[2] = new Coordinates(L, 0, 0);
+            countries[3] = new Coordinates(L, 0, L);
+            countries[4] = new Coordinates(L, 0, 2 * L);
+            countries[5] = new Coordinates(2 * L, 0, L);
+            countries[6] = new Coordinates(0, 0, 3 * L);
+            countries[7] = new Coordinates(0, 0, 4 * L);
+            countries[8] = new Coordinates(L, 0, 3 * L);
+            countries[9] =  new Coordinates(2 * L, 0, 3 * L);
+        }
         public static void AddSimulationManagerEntity(SnapshotBuilder snapshot)
         {
             var entity = EntityTemplateFactory.CreateSimulationManagerTemplate();
@@ -22,10 +37,8 @@ namespace Assets.Editor
         {
             for(int i = 0; i < 2500; i++)
             {
-                int a = Random.Range(0, 1000);
-                int b = Random.Range(0, 1000);
-
-                AddIndividual(snapshot, new Coordinates(a, 0, b));
+                Coordinates coord = countries[Random.Range(0, 9)];
+                AddIndividual(snapshot, coord);
             }    
         }
 
@@ -39,7 +52,6 @@ namespace Assets.Editor
 
         public static void AddSimulationCountries(SnapshotBuilder snapshot)
         {
-            var L = 400;
             AddCountry(snapshot, new Coordinates(0, 0, 0));
             AddCountry(snapshot, new Coordinates(0, 0, L));
             AddCountry(snapshot, new Coordinates(L, 0, 0));
