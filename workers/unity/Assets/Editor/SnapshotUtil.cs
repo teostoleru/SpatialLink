@@ -35,7 +35,8 @@ namespace Assets.Editor
 
         public static void AddSimulationIndividuals(SnapshotBuilder snapshot) 
         {
-            for(int i = 0; i < 2500; i++)
+            InitialiseCountries();
+            for (int i = 0; i < 2500; i++)
             {
                 Coordinates coord = countries[Random.Range(0, 9)];
                 AddIndividual(snapshot, coord);

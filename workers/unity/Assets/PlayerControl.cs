@@ -27,6 +27,7 @@ namespace Assets.Gamelogic.Country
 
         private void Start()
         {
+            InitialiseCountries();
             transform = gameObject.GetComponent<Transform>();
         }
 
