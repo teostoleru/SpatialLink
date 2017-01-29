@@ -20,14 +20,15 @@ namespace Assets.Editor
 
         public static void AddSimulationIndividuals(SnapshotBuilder snapshot) 
         {
-            for(int i = 0; i < 10000; i++)
+            for(int i = 0; i < 2500; i++)
             {
                 int a = Random.Range(0, 1000);
                 int b = Random.Range(0, 1000);
 
-                AddIndividual(snapshot, new Coordinates(a, b, 0));
+                AddIndividual(snapshot, new Coordinates(a, 0, b));
             }    
         }
+
 
         public static void AddIndividual(SnapshotBuilder snapshot, Coordinates coordinates)
         {

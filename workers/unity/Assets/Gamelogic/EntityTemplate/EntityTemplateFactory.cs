@@ -91,7 +91,7 @@ namespace Assets.Gamelogic.EntityTemplate
         }
 
         public static SnapshotEntity CreateIndividualTemplate(Coordinates initialPosition) {
-            var template = new SnapshotEntity { Prefab = SimulationSettings.TreePrefabName };
+            var template = new SnapshotEntity { Prefab = SimulationSettings.CountryPrefabName };
             template.Add(new TransformComponent.Data(initialPosition, (uint)0));
 
             var permissions = Acl.Build()
@@ -105,7 +105,7 @@ namespace Assets.Gamelogic.EntityTemplate
 
         public static SnapshotEntity CreateTreeTemplate(Coordinates initialPosition, uint initialRotation)
         {
-            var template = new SnapshotEntity { Prefab = SimulationSettings.TreePrefabName };
+            var template = new SnapshotEntity { Prefab = SimulationSettings.CountryPrefabName };
             template.Add(new FSimAuthorityCheck.Data());
             template.Add(new TransformComponent.Data(initialPosition, initialRotation));
             template.Add(new Harvestable.Data());

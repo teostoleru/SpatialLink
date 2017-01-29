@@ -11,7 +11,7 @@ namespace Assets.Gamelogic.Core
         public static string NPCPrefabName = "NPCLumberjack";
         public static string NPCWizardPrefabName = "NPCWizard";
         public static string HQPrefabName = "HQ";
-        public static string TreePrefabName = "Tree";
+        public static string CountryPrefabName = "Country";
         public static string StockpilePrefabName = "Stockpile";
         public static string BarracksPrefabName = "Barracks";
         public static string SimulationManagerEntityName = "SimulationManagerEntity";
