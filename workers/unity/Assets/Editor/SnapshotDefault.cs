@@ -11,6 +11,7 @@ namespace Assets.Editor
             var texture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Editor/Resources/perlin.png");
             
             SnapshotUtil.AddSimulationIndividuals(snapshot);
+            SnapshotUtil.AddSimulationCountries(snapshot);
             SnapshotUtil.AddSimulationManagerEntity(snapshot);
         }
     }

@@ -37,6 +37,28 @@ namespace Assets.Editor
             snapshot.Add(entityId, entity);
         }
 
+        public static void AddSimulationCountries(SnapshotBuilder snapshot)
+        {
+            var L = 400;
+            AddCountry(snapshot, new Coordinates(0, 0, 0));
+            AddCountry(snapshot, new Coordinates(0, 0, L));
+            AddCountry(snapshot, new Coordinates(L, 0, 0));
+            AddCountry(snapshot, new Coordinates(L, 0, L));
+            AddCountry(snapshot, new Coordinates(L, 0, 2 * L));
+            AddCountry(snapshot, new Coordinates(2 * L, 0, L));
+            AddCountry(snapshot, new Coordinates(0, 0, 3 * L));
+            AddCountry(snapshot, new Coordinates(0, 0, 4 * L));
+            AddCountry(snapshot, new Coordinates(L, 0, 3 * L));
+            AddCountry(snapshot, new Coordinates(2 * L, 0, 3 * L));
+        }
+
+        public static void AddCountry(SnapshotBuilder snapshot, Coordinates coordinates)
+        {
+            var entityId = snapshot.GenerateId();
+            var entity = EntityTemplateFactory.CreateCountryTemplate(coordinates);
+            snapshot.Add(entityId, entity);
+        }
+
         public static void AddTrees(SnapshotBuilder snapshot, Texture2D sampler, float sampleThreshold, int countAproximate, double edgeLength, float placementJitter)
         {
             var treeCountSqrt = Mathf.CeilToInt(Mathf.Sqrt(countAproximate));
