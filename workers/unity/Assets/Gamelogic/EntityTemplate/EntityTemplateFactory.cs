@@ -91,7 +91,7 @@ namespace Assets.Gamelogic.EntityTemplate
         }
 
         public static SnapshotEntity CreateIndividualTemplate(Coordinates initialPosition) {
-            var template = new SnapshotEntity { Prefab = SimulationSettings.CountryPrefabName };
+            var template = new SnapshotEntity { Prefab = SimulationSettings.PlayerPrefabName };
             template.Add(new TransformComponent.Data(initialPosition, (uint)0));
 
             var permissions = Acl.Build()
@@ -103,11 +103,11 @@ namespace Assets.Gamelogic.EntityTemplate
             return template;    
         }
 
-        public static SnapshotEntity CreateTreeTemplate(Coordinates initialPosition, uint initialRotation)
+        public static SnapshotEntity CreateCountryTemplate(Coordinates initialPosition)
         {
             var template = new SnapshotEntity { Prefab = SimulationSettings.CountryPrefabName };
             template.Add(new FSimAuthorityCheck.Data());
-            template.Add(new TransformComponent.Data(initialPosition, initialRotation));
+            template.Add(new TransformComponent.Data(initialPosition, (uint)0));
             template.Add(new Harvestable.Data());
             template.Add(new Health.Data(SimulationSettings.TreeMaxHealth, SimulationSettings.TreeMaxHealth, true));
             template.Add(new Flammable.Data(false, true, FireEffectType.BIG));

@@ -94,7 +94,7 @@ namespace Assets.Editor
         {
             var treeEntityId = snapshot.GenerateId();
             var spawnRotation = (uint)Mathf.CeilToInt((float)rand.NextDouble() * 360.0f);
-            var entity = EntityTemplateFactory.CreateTreeTemplate(position, spawnRotation);
+            var entity = EntityTemplateFactory.CreateCountryTemplate(position);
             snapshot.Add(treeEntityId, entity);
         }
 
